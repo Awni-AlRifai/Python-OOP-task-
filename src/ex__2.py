@@ -13,6 +13,8 @@ class LOWFUELERROR(Exception):
 
 
 class Plane:
+    MAX_FUEL = 1000
+
     def __init__(self, position, fuel):
         self._position = position
         self._fuel = self.__check_fuel(fuel)
@@ -21,7 +23,7 @@ class Plane:
 
     @ staticmethod
     def __check_fuel(fuel):
-        if(fuel > 1000):
+        if(fuel > M):
             return 1000
         else:
             return fuel
