@@ -70,8 +70,8 @@ class Plane:
             print(error.args[0])
 
 
-plane__1 = Plane((0, 0), 22)
-plane__1.fly((3, 4))
-plane__1.add_fuel(10)
-plane__1.fly((10, 10))
-plane__1.fly((3, 5))
+plane_1 = Plane((0, 0), 22)
+plane_1.fly((3, 4))
+plane_1.add_fuel(10)
+plane_1.fly((10, 10))
+plane_1.fly((3, 5))
