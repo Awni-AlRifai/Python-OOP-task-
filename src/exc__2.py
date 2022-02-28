@@ -48,13 +48,14 @@ class Plane:
             # update total distance
             horizontal_distance = abs(desired_location[0]-self._position[0])
             vertical_distance = abs(desired_location[1]-self._position[1])
-            total_distance = math.ceil(math.sqrt(
-                vertical_distance**2+horizontal_distance**2))
-
+            total_distance = math.sqrt(
+                vertical_distance**2+horizontal_distance**2)
+            print(total_distance)
             fuel_needed = int(fuel_per_distance*total_distance)
             if(self._fuel < fuel_needed):
                 raise LOWFUELERROR(
                     self._position, desired_location, self._fuel, fuel_needed)
+
             self._distance += total_distance
             self._position = desired_location
 
@@ -67,6 +68,32 @@ class Plane:
 
 plane__1 = Plane((0, 0), 22)
 plane__1.fly((3, 4))
-plane__1.add_fuel(10)
-plane__1.fly((10, 10))
-plane__1.fly((3, 5))
+plane__1.fly((20, 17))
+
+
+# class Concorde(Plane):
+#     def __init__(self, position, fuel, number_of_passengers):
+#         self._number_of_passengers = self.__valid_number_of_passengers(
+#             number_of_passengers)
+
+#         super().__init__(position, fuel)
+
+#     def __valid_number_of_passengers(self, number_of_passengers):
+#         if(number_of_passengers > 15):
+#             self._number_of_passengers = 15
+#             print('The maximum number of Passengers is 15 you cannot add more \n')
+#         else:
+#             self._number_of_passengers = number_of_passengers
+
+#     def fuel_based_on_passengers(self):
+#         if(self._number_of_passengers == 0):
+#             return 4
+#         elif(1 <= self._number_of_passengers <= 7):
+#             return 7
+#         return 9
+
+#     def fly(self, desired_location, fuel_per_distance=4):
+#         Plane.fly(self, desired_location, fuel_per_distance)
+
+
+# coor = Concorde((0, 0), 42, 16)
