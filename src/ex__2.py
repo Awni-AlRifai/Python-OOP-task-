@@ -1,10 +1,14 @@
 
-from src.exc__1 import Plane
+# from src.exc__1 import Plane
+from exc__1 import Plane
 import math
 
 
 class Concorde(Plane):
+    _count = 0
+
     def __init__(self, position, fuel):
+        Concorde._count += 1
         self._number_of_passengers = 0
         super().__init__(position, fuel)
 
@@ -14,6 +18,10 @@ class Concorde(Plane):
             print('The maximum number of Passengers is 15 you cannot add more \n')
         else:
             self._number_of_passengers = number_of_passengers
+
+    @staticmethod
+    def get_instances_count():
+        return Concorde._count
 
     def __fuel_based_on_passengers(self):
 
@@ -48,3 +56,4 @@ plane__5 = Concorde((1, 80), 20)
 
 
 furthest_plane([plane__3, plane__4, plane__5], (0, 0))
+print(Concorde.get_instances_count())
